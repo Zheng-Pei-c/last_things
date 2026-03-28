@@ -1,0 +1,372 @@
+:root {
+  --paper: #f8f4eb;
+  --ink: #1f1a17;
+  --muted: #6f655d;
+  --line: #d7cec3;
+  --accent: #9d3d18;
+  --accent-soft: rgba(157, 61, 24, 0.08);
+  --panel: rgba(255, 252, 247, 0.92);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(157, 61, 24, 0.10), transparent 30%),
+    linear-gradient(180deg, #efe6d6 0%, var(--paper) 20%, #f4efe6 100%);
+  line-height: 1.65;
+}
+
+.site-header, .page {
+  width: min(860px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 2rem 0 1rem;
+  position: relative;
+}
+
+.home-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0.2rem;
+  font-style: italic;
+}
+
+.page {
+  padding-bottom: 4rem;
+}
+
+.content,
+.toc-shell,
+.story-nav,
+.control-shell {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(69, 47, 30, 0.08);
+}
+
+.content {
+  padding: 2rem;
+}
+
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.2rem auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 36px rgba(69, 47, 30, 0.10);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.poem {
+  text-align: center;
+}
+
+.poem p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 32rem;
+}
+
+.book-front {
+  padding: 1.4rem 0 0.6rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+}
+
+.front-subtitle,
+.front-note,
+.toc-meta,
+.toc-id,
+.featured-meta p,
+.reading-mode-note,
+.story-id,
+.copyright-note {
+  color: var(--muted);
+}
+
+.copyright-note {
+  border-top: 1px solid #000;
+  margin-top: 1.6rem;
+  padding-top: 0.8rem;
+}
+
+.control-shell {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  column-gap: 0.7rem;
+  row-gap: 0.5rem;
+  padding: 0.9rem 1rem;
+  margin: 1rem 0 0.9rem;
+}
+
+.mode-label {
+  margin-right: 0.2rem;
+  font-size: 0.95rem;
+}
+
+.reader-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.tool-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tool-value {
+  min-width: 2.6rem;
+  text-align: center;
+  border: 1px solid rgba(157, 61, 24, 0.22);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  background: white;
+  color: var(--ink);
+}
+
+.tool-button {
+  appearance: none;
+  border: 1px solid rgba(157, 61, 24, 0.22);
+  background: white;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink);
+}
+
+.mode-toggle {
+  appearance: none;
+  border: 1px solid rgba(157, 61, 24, 0.22);
+  background: white;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink);
+}
+
+.mode-toggle.is-active {
+  background: var(--accent-soft);
+  border-color: rgba(157, 61, 24, 0.38);
+}
+
+.toc-shell {
+  margin: 1rem 0 1.4rem;
+  overflow: hidden;
+}
+
+.toc-shell summary {
+  cursor: pointer;
+  padding: 1rem 1.2rem;
+  font-size: 1.05rem;
+  list-style: none;
+}
+
+.toc-shell summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-shell summary::after {
+  content: "+";
+  float: right;
+  color: var(--accent);
+}
+
+.toc-shell[open] summary::after {
+  content: "-";
+}
+
+.toc-copy {
+  padding: 0 1.2rem 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.chaos-toc {
+  column-width: 18rem;
+  column-gap: 2rem;
+  padding-left: 1.4rem;
+}
+
+.chaos-toc li {
+  break-inside: avoid;
+  margin-bottom: 0.45rem;
+}
+
+.featured-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.cover-figure {
+  margin: 0 0 1.2rem;
+}
+
+.cover-figure img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(69, 47, 30, 0.10);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.cover-figure figcaption {
+  display: none;
+}
+
+.featured-meta {
+  padding: 0.2rem 0 0;
+}
+
+.featured-link-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.featured-story h1:first-child {
+  display: none;
+}
+
+.story-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0;
+  margin-top: 1rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.story-nav a {
+  background: var(--accent-soft);
+  border: 1px solid rgba(157, 61, 24, 0.18);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+}
+
+.story-nav [data-nav="prev"] {
+  margin-right: auto;
+}
+
+.story-nav [data-nav="home"] {
+  margin: 0 auto;
+}
+
+.story-nav [data-nav="next"] {
+  margin-left: auto;
+}
+
+.story-id {
+  width: 100%;
+  text-align: center;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+  margin-top: 2.2rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--line);
+}
+
+a {
+  color: var(--accent);
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.2rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(157, 61, 24, 0.05);
+}
+
+pre, code {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #241d19;
+  color: #f5eee6;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: rgba(157, 61, 24, 0.08);
+}
+
+ul, ol {
+  padding-left: 1.4rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 1.2rem;
+  }
+
+  .control-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .story-id {
+    order: 4;
+  }
+}
