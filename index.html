@@ -41,7 +41,7 @@
       <div class="reader-tools">
         <span class="tool-label">Text</span>
         <button class="tool-button" type="button" data-font-step="-1" title="Decrease text size">-</button>
-        <span class="tool-value" data-font-value>18</span>
+        <span class="tool-value" data-font-value>15</span>
         <button class="tool-button" type="button" data-font-step="1" title="Increase text size">+</button>
       </div>
     </div>
@@ -133,8 +133,8 @@ function getOrderedFiles(mode) {
 
 function loadFontScale() {
   const raw = Number(localStorage.getItem(STORAGE_FONT_KEY));
-  if (!Number.isFinite(raw)) return 18;
-  return Math.min(24, Math.max(12, raw));
+  if (!Number.isFinite(raw)) return 15;
+  return Math.min(24, Math.max(15, raw));
 }
 
 function saveFontScale(scale) {
@@ -229,15 +229,23 @@ function wireFontTools() {
     if (!button) return;
     button.addEventListener("click", () => {
       const direction = Number(button.dataset.fontStep);
-      const next = Math.min(24, Math.max(12, loadFontScale() + direction));
+      const next = Math.min(24, Math.max(15, loadFontScale() + direction));
       saveFontScale(next);
       applyFontScale(next);
     });
   });
 }
 
+function forceCollapsedToc() {
+  const toc = document.querySelector(".toc-shell");
+  if (toc) {
+    toc.open = false;
+  }
+}
+
 wireModeButtons();
 wireFontTools();
+forceCollapsedToc();
 wireStoryNav();
 </script>
 </body>
