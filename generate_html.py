@@ -355,14 +355,24 @@ body {
 .featured-meta p,
 .reading-mode-note,
 .story-id,
-.copyright-note {
+.copyright-note,
+.license-note {
   color: var(--muted);
+}
+
+.license-name {
+  color: var(--accent);
 }
 
 .copyright-note {
   border-top: 1px solid #000;
   margin-top: 1.6rem;
   padding-top: 0.8rem;
+}
+
+.license-note {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .control-shell {
@@ -847,6 +857,7 @@ def build_index_page(manifest: list[dict[str, str]], script: str) -> str:
 </section>
 
 <p class="copyright-note">Copyright © Zheng Pei.</p>
+<p class="license-note">License: <span class="license-name">CC BY-NC 4.0</span>. Readers may share and adapt this work with credit for noncommercial use. Commercial use is not permitted.</p>
 """
     return page_template(TITLE, content, script=script)
 
