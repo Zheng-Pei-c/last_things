@@ -99,14 +99,24 @@ body {
 .featured-meta p,
 .reading-mode-note,
 .story-id,
-.copyright-note {
+.copyright-note,
+.license-note {
   color: var(--muted);
+}
+
+.license-name {
+  color: var(--accent);
 }
 
 .copyright-note {
   border-top: 1px solid #000;
   margin-top: 1.6rem;
   padding-top: 0.8rem;
+}
+
+.license-note {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .control-shell {
